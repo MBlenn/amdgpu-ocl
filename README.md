@@ -2,7 +2,7 @@
 
 This script extracts the OpenCL bits and bobs from the official AMDGPU-PRO driver provided by AMD.
 These files are then packaged into a .deb file with very few  dependencies.
-Installing the resulting file on top of the open source amdgpu driver, you will be able to use official AMDGPU-PRO OpenCL on unsupported distributions like Ubuntu interim releases, Debian or Mint. 
+Installing the resulting file on top of the open source amdgpu driver, you will be able to use official AMDGPU-PRO OpenCL on unsupported distributions like Ubuntu's interim releases, Debian or Mint. 
 
 Download the latest AMDGPU-PRO driver for Ubuntu, switch to the directory containing the archive and 
 
@@ -20,8 +20,7 @@ Processing driver archive:
 Copying files to package directory done
 
 Building package (allow up to 2min):
-dpkg-deb: building package 'amdgpu-ocl' in 'amdgpu-ocl.deb'.
-Renaming amdgpu-ocl.deb to amdgpu-ocl_20.40-1147286.deb
+dpkg-deb: building package 'amdgpu-ocl' in 'amdgpu-ocl_20.40-1147286.deb'.
 
 amdgpu-ocl_20.40-1147286.deb content:
 drwxr-xr-x root/root         0 2020-10-10 00:12 ./
@@ -49,12 +48,25 @@ Install the driver with
 ```
 dpkg -i amdgpu-ocl_20.40-1147286.deb
 ```
-Use clinfo to verify the amdgpu-pro driver is in place and active:
+
+On Ubuntu and most likely other Debian derivatives you will also need to install the ICD loader **ocl-icd-libopencl1**.
+Use clinfo to verify the OpenCL part of amdgpu-pro is in place and active:
 ```
-user@hostname:~# clinfo | egrep "Device Version|Driver Version"
+user@hostname:~# clinfo | egrep "Platform Version|Device Version|Driver Version"
+  Platform Version                                OpenCL 2.1 AMD-APP (3180.7)
   Device Version                                  OpenCL 2.0 AMD-APP (3180.7)
   Driver Version                                  3180.7 (PAL,HSAIL)
 user@hostname:~# 
 ```
-Your GPU can now be used for OpenCL tasks. 
+These device and driver strings confirm that the AMDGPU-PRO OpenCL driver is in place. In case ROCm or Mesa OpenCL driver were present, these strings would look differently.
+
+Mesa + clover:
+```
+  Platform Version                                OpenCL 1.1 Mesa 17.3.0
+  Device Version                                  OpenCL 1.1 Mesa 17.3.0
+  Driver Version                                  17.3.0
+```
+
+
+Your GPU can now be used for OpenCL work.  
 Go find some gravitational waves or gamma-ray pulsar binaries at https://einsteinathome.org/ 
