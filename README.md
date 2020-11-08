@@ -4,7 +4,9 @@ This script extracts the OpenCL bits and bobs from the official AMDGPU-PRO drive
 These files are then packaged into a .deb file with very few  dependencies.
 Installing the resulting file on top of the open source amdgpu driver, you will be able to use official AMDGPU-PRO OpenCL on unsupported distributions like Ubuntu's interim releases, Debian or Mint. 
 
-Download the latest AMDGPU-PRO driver for Ubuntu, switch to the directory containing the archive and 
+Download the latest AMDGPU-PRO driver for Ubuntu and run the script with the archive as its only parameter.
+The archive can be in the same directory or placed elsewhere. In the later case the script copies it to the local directory.
+
 
 Usage:
 ```
