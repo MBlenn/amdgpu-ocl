@@ -1,5 +1,11 @@
 # amdgpu-ocl
 
+### WARNING
+
+As of 14.01.2021 the script does not yet work with the new ROCr based OpenCL driver.
+Since 20.45 is only required for Big Navi and known to have several issues, stick with 20.40 for Polaris, Vega and Navi.  
+-
+  
 This script extracts the OpenCL bits and bobs from the official AMDGPU-PRO driver provided by AMD.
 These files are then packaged into a .deb file with very few  dependencies.
 Installing the resulting file on top of the open source amdgpu driver, you will be able to use official AMDGPU-PRO OpenCL on unsupported distributions like Ubuntu's interim releases, Debian or Mint. 
