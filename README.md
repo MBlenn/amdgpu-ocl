@@ -2,7 +2,7 @@
 
 ### WARNING
 
-As of 14.01.2021 the script does not yet work with the new ROCr based OpenCL driver.
+As of 14.01.2021 the script does not yet work with the new ROCr based OpenCL driver in amdgpu-pro 20.45.
 Since 20.45 is only required for Big Navi and known to have several issues, stick with 20.40 for Polaris, Vega and Navi.  
 -
   
